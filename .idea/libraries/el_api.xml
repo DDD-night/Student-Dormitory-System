@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="el-api">
+    <CLASSES>
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/el-api.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/jsp-api.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/mysql-connector-java-8.0.13.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/taglibs-standard-spec-1.2.5.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/taglibs-standard-impl-1.2.5.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/tomcat-api.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/tomcat-jdbc.jar!/" />
+      <root url="jar://D:/Apache Software Foundation/Tomcat 9.0/lib/tomcat-util.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
