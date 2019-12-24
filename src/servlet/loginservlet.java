@@ -43,8 +43,10 @@ public class loginservlet extends HttpServlet {
                 user1.setPassword(password);
                 user_result = jdbc.checkuser(user1);
                 if (user_result==null){
+                    session.setAttribute("success",2);
                     resp.sendRedirect("login.jsp");
                 } else{
+                    session.setAttribute("success",1);
                     session.setAttribute("user",user_result);
                     resp.sendRedirect("student.jsp");
                 }
@@ -56,6 +58,7 @@ public class loginservlet extends HttpServlet {
                 admin1.setAdminpassword(password);
                 admin_result = jdbc.checkadmin(admin1);
                     if(admin_result==null){
+                        session.setAttribute("success",2);
                         resp.sendRedirect("login.jsp");
                     }else{
                         ArrayList<userhome> userhomes=jdbc.selectuserhome(admin_result.getAdminhome());
@@ -68,8 +71,7 @@ public class loginservlet extends HttpServlet {
                                 x3++;
                             }
                         }
-
-
+                        session.setAttribute("success",1);
                         session.setAttribute("x1",x1);
                         session.setAttribute("x2",x2);
                         session.setAttribute("x3",x3);

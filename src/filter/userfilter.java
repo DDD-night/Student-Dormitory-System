@@ -1,6 +1,5 @@
 package filter;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
@@ -11,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "loginfilter",urlPatterns = {"/production/index.jsp"})
-public class loginfilter extends HttpFilter {
+@WebFilter(filterName = "userfilter",urlPatterns = {"/production/student.jsp"})
+public class userfilter extends HttpFilter {
     private FilterConfig config;
 
     @Override
@@ -23,8 +22,8 @@ public class loginfilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpSession session = request.getSession(true);
-        if(session.getAttribute("admin")==null ){
-            session.setAttribute("success", 3);
+        if(session.getAttribute("user")==null ){
+            session.setAttribute("success",3);
             response.sendRedirect("login.jsp");
         }else {
             chain.doFilter(request,response);
