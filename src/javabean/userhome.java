@@ -1,5 +1,9 @@
 package javabean;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.Timer;
+
 public class userhome {
     private String number;
     private String adminhome;
@@ -8,6 +12,16 @@ public class userhome {
     private String home;
     private String email;
     private String password;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public void setThing(int thing) {
         this.thing = thing;
     }

@@ -1,7 +1,8 @@
 package servlet;
 
 import javabean.JDBC;
-import javabean.userhome;
+import javabean.user;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "student",urlPatterns = "/production/student")
-public class studentservlet extends HttpServlet {
+@WebServlet(name = "update", urlPatterns = "/production/update")
+public class updateservlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
@@ -23,22 +24,31 @@ public class studentservlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession(true);
-        userhome userhome1 =new userhome();
-        userhome1.setNumber(req.getParameter("number"));
-        userhome1.setAdminhome(req.getParameter("adminhome"));
-        userhome1.setThing(Integer.parseInt(req.getParameter("thing")));
+        String number = req.getParameter("number");
+        String name=req.getParameter("name");
+        String home=req.getParameter("home");
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        user user1 = new user();
+        user1.setNumber(number);
+        user1.setName(name);
+        user1.setHome(home);
+        user1.setEmail(email);
+        user1.setPassword(password);
         try {
-            JDBC jdbc =new JDBC();
-            int i = jdbc.insertuserhome(userhome1);
-            if (i ==0){
+            JDBC jdbc = new JDBC();
+            int i = jdbc.updateuser(user1);
+            if (i == 0) {
                 session.setAttribute("success",6);
-            }else {
+                resp.sendRedirect("student.jsp#signup");
+            } else {
                 session.setAttribute("success",7);
+                resp.sendRedirect("student.jsp");
             }
-            resp.sendRedirect("student.jsp");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            session.setAttribute("success",6);
+            resp.sendRedirect("student.jsp#signup");
         }
-
     }
 }

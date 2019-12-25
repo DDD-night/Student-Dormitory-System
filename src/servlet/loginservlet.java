@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 @WebServlet(name = "login",urlPatterns = "/production/login")
@@ -51,7 +52,6 @@ public class loginservlet extends HttpServlet {
                     resp.sendRedirect("student.jsp");
                 }
             }else{
-                int x1=0,x2=0,x3=0;
                 admin admin1 = new admin();
                 admin admin_result = new admin();
                 admin1.setAdminnumber(number);
@@ -61,8 +61,17 @@ public class loginservlet extends HttpServlet {
                         session.setAttribute("success",2);
                         resp.sendRedirect("login.jsp");
                     }else{
-                        ArrayList<userhome> userhomes=jdbc.selectuserhome(admin_result.getAdminhome());
-                        for (int i=0;i<userhomes.size();i++){
+                        ArrayList<userhome> userhomes = new ArrayList<>();
+                        try {
+                            jdbc = new JDBC();
+                            userhomes=jdbc.selectuserhome(admin_result.getAdminhome());
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        int x1=0,x2=0,x3=0;
+                        for (int i=0; i<userhomes.size(); i++){
                             if (userhomes.get(i).getThing()==1){
                                 x1++;
                             }else if (userhomes.get(i).getThing()==2){
@@ -71,7 +80,6 @@ public class loginservlet extends HttpServlet {
                                 x3++;
                             }
                         }
-                        session.setAttribute("success",1);
                         session.setAttribute("x1",x1);
                         session.setAttribute("x2",x2);
                         session.setAttribute("x3",x3);

@@ -133,6 +133,20 @@
                 type: 'success',
                 styling: 'bootstrap3'
             });
+        }else if (x==6){
+            new PNotify({
+                title: 'Oh No!',
+                text: '提交失败, 请重新提交',
+                type: 'error',
+                styling: 'bootstrap3'
+            });
+        }else if (x==7){
+            new PNotify({
+                title: 'Success',
+                text: '提交成功',
+                type: 'success',
+                styling: 'bootstrap3'
+            });
         }
     }
 </script>
