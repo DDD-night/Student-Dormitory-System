@@ -128,6 +128,14 @@ public class JDBC {
         int i = pstmt.executeUpdate();
         return i;
     }
+    public int deleteuserhome(userhome userhome1) throws SQLException {
+        String sql ="DELETE FROM userhome WHERE number=? AND adminhome =?";
+        PreparedStatement pstmt = this.connection.prepareStatement(sql);
+        pstmt.setString(1,userhome1.getNumber());
+        pstmt.setString(2,userhome1.getAdminhome());
+        int i = pstmt.executeUpdate();
+        return  i;
+    }
     protected void close() throws SQLException {
         this.connection.close();
     }

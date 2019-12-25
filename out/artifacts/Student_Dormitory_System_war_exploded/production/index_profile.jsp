@@ -39,29 +39,14 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <h3>功能</h3>
                         <ul class="nav side-menu">
-                            <li><a href="index.html"><i class="fa fa-home"></i> Home</a>
+                            <li><a href="index.jsp"><i class="fa fa-home"></i> Home</a>
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Forms </a>
+                            <li><a href="index_profile.jsp"><i class="fa fa-edit"></i> profile</a>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> UI Elements</a>
+                            <li><a href="help.jsp"><i class="fa fa-desktop"></i> help</a>
                             </li>
-                            <li><a><i class="fa fa-table"></i> Tables </a>
-                            </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="menu_section">
-                        <h3>Live On</h3>
-                        <ul class="nav side-menu">
-                            <li><a><i class="fa fa-bug"></i> Additional Pages </span></a>
-                            </li>
-                            <li><a><i class="fa fa-windows"></i> Extras </a>
-                            </li>
-                            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
-                                    class="label label-success pull-right">Coming Soon</span></a></li>
                         </ul>
                     </div>
 
@@ -102,7 +87,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="index_profile.jsp"> Profile</a>
-                                <a class="dropdown-item" href="help.html">Help</a>
+                                <a class="dropdown-item" href="help.jsp">Help</a>
                                 <a class="dropdown-item" href="login.jsp"><i class="fa fa-sign-out pull-right"></i> Log
                                     Out</a>
                             </div>
@@ -131,36 +116,45 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <br />
-                            <form id="demo-form2" action="updateadmin" method="post" data-parsley-validate class="form-horizontal form-label-left">
+                            <br/>
+                            <form id="demo-form2" action="updateadmin" method="post" data-parsley-validate
+                                  class="form-horizontal form-label-left">
 
                                 <div class="item form-group">
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="first-name" name="number" value="${admin.adminnumber}" required="required" class="form-control " hidden>
+                                        <input type="text" id="first-name" name="number" value="${admin.adminnumber}"
+                                               required="required" class="form-control " hidden>
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">姓名 <span class="required"></span>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">姓名 <span
+                                            class="required"></span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="last-name" name="name" value="${admin.adminname}" required="required" class="form-control">
+                                        <input type="text" id="last-name" name="name" value="${admin.adminname}"
+                                               required="required" class="form-control">
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">管理宿舍楼 </label>
+                                    <label for="middle-name"
+                                           class="col-form-label col-md-3 col-sm-3 label-align">管理宿舍楼 </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input id="middle-name" class="form-control" value="${admin.adminhome}" type="text" name="home">
+                                        <input id="middle-name" class="form-control" value="${admin.adminhome}"
+                                               type="text" name="home">
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align">邮箱 <span class="required"></span>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">邮箱 <span
+                                            class="required"></span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input class="date-picker form-control" value="${admin.adminemail}" required="required" type="email">
+                                        <input class="date-picker form-control" value="${admin.adminemail}"
+                                               required="required" type="email">
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align">密码 <span class="required"></span>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">密码 <span
+                                            class="required"></span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input class="date-picker form-control" required="required" type="password">

@@ -18,4 +18,7 @@
 <error-code>500</error-code>
 <location>/production/page_500.jsp</location>
         </error-page>
+    <listener>
+        <listener-class>com.indexlistener</listener-class>
+    </listener>
 </web-app>

@@ -39,32 +39,16 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <h3>功能</h3>
                         <ul class="nav side-menu">
-                            <li><a href="index.html"><i class="fa fa-home"></i> Home</a>
+                            <li><a href="index.jsp"><i class="fa fa-home"></i> Home</a>
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Forms </a>
+                            <li><a href="index_profile.jsp"><i class="fa fa-edit"></i> profile</a>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> UI Elements</a>
-                            </li>
-                            <li><a><i class="fa fa-table"></i> Tables </a>
-                            </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation </a>
+                            <li><a href="help.jsp"><i class="fa fa-desktop"></i> help</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="menu_section">
-                        <h3>Live On</h3>
-                        <ul class="nav side-menu">
-                            <li><a><i class="fa fa-bug"></i> Additional Pages </span></a>
-                            </li>
-                            <li><a><i class="fa fa-windows"></i> Extras </a>
-                            </li>
-                            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
-                                    class="label label-success pull-right">Coming Soon</span></a></li>
-                        </ul>
-                    </div>
-
                 </div>
                 <!-- /sidebar menu -->
 
@@ -164,17 +148,13 @@
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2><small>人员管理列表</small></h2>
+                            <h2><small>${admin.adminhome}公寓的人员管理列表</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                        aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Settings 1</a>
-                                        <a class="dropdown-item" href="#">Settings 2</a>
-                                    </div>
                                 </li>
                                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                                 </li>
@@ -195,25 +175,26 @@
                                                class="table table-striped table-bordered bulk_action"
                                                style="width:100%">
                                             <thead>
+
                                             <tr>
-                                                <th>
-                                                <th><input type="checkbox" id="check-all" class="flat"></th>
-                                                </th>
                                                 <th>姓名</th>
                                                 <th>学号</th>
                                                 <th>所在宿舍</th>
                                                 <th>邮箱</th>
                                                 <th>备注</th>
                                                 <th>时间</th>
+                                                <th>
+                                                删除
+                                            </th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
                                             <c:forEach var="userhome" items="${userhomes}">
                                                 <tr>
-                                                    <td>
-                                                    <th><input type="checkbox" class="flat"></th>
-                                                    </td>
+                                                    <form action="delete" method="post">
+                                                        <input type="text" name="number" value="${userhome.number}" hidden>
+                                                        <input type="text" name="adminhome" value="${admin.adminhome}" hidden>
                                                     <td>${userhome.name}</td>
                                                     <td>${userhome.number}</td>
                                                     <td>${userhome.home}</td>
@@ -226,6 +207,10 @@
                                                         </c:choose>
                                                     </td>
                                                     <td>${userhome.date}</td>
+                                               <td>
+                                                <input type="submit"  class="btn-app">
+                                            </td>
+                                                    </form>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
