@@ -13,7 +13,7 @@
         <div class="animate form login_form">
             <section class="login_content">
                 <form action="student" method="post">
-                    <h1>Login Form</h1>
+                    <h1>提交信息</h1>
                     <div>
                         <label class="col-form-label">欢迎 ${user.name} 同学, 请输入一下内容</label>
                     </div>
